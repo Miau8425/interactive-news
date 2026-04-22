@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính số năm mua nhà</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      background: #f9f9f9;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .note {
+      font-size: 14px;
+      color: gray;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Bạn cần bao nhiêu năm để mua nhà?</h2>
+
+  <label>Nhập thu nhập mỗi tháng (VNĐ):</label>
+  <input id="salary" type="number" placeholder="Ví dụ: 15000000" />
+
+  <button onclick="calc()">Tính toán</button>
+
+  <div class="result" id="result"></div>
+
+  <div class="note">
+    *Giá căn hộ giả định: 4 tỷ đồng (TP.HCM)
+  </div>
+</div>
+
+<script>
+function calc() {
+  let salary = document.getElementById("salary").value;
+
+  if (!salary || salary <= 0) {
+    document.getElementById("result").innerText = "Vui lòng nhập thu nhập hợp lệ";
+    return;
+  }
+
+  let years = 4000000000 / (salary * 12);
+
+  document.getElementById("result").innerText =
+    "Bạn cần khoảng " + years.toFixed(1) + " năm để mua nhà";
+}
+</script>
+
+</body>
+</html>
