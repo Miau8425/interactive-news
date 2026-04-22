@@ -1,0 +1,130 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="vi">\
+<head>\
+<meta charset="UTF-8">\
+<title>B\uc0\u7841 n c\u7847 n bao nhi\'eau n\u259 m \u273 \u7875  mua nh\'e0?</title>\
+\
+<style>\
+body \{\
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\
+  background: #f5f5f5;\
+  margin: 0;\
+  padding: 20px;\
+\}\
+\
+.container \{\
+  max-width: 600px;\
+  margin: auto;\
+  background: white;\
+  padding: 25px;\
+  border-radius: 12px;\
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);\
+\}\
+\
+h2 \{\
+  text-align: center;\
+\}\
+\
+.slider-box \{\
+  margin-top: 20px;\
+\}\
+\
+input[type=range] \{\
+  width: 100%;\
+\}\
+\
+.salary \{\
+  text-align: center;\
+  font-size: 22px;\
+  font-weight: bold;\
+  margin: 10px 0;\
+\}\
+\
+.result \{\
+  margin-top: 20px;\
+  font-size: 20px;\
+  text-align: center;\
+  font-weight: bold;\
+\}\
+\
+.compare \{\
+  margin-top: 20px;\
+  font-size: 14px;\
+  color: #555;\
+  text-align: center;\
+\}\
+\
+.highlight \{\
+  color: #e53935;\
+  font-weight: bold;\
+\}\
+\
+.note \{\
+  margin-top: 15px;\
+  font-size: 13px;\
+  color: gray;\
+  text-align: center;\
+\}\
+</style>\
+</head>\
+\
+<body>\
+\
+<div class="container">\
+  <h2>B\uc0\u7841 n c\u7847 n bao nhi\'eau n\u259 m \u273 \u7875  mua nh\'e0?</h2>\
+\
+  <div class="slider-box">\
+    <input type="range" min="5000000" max="100000000" step="1000000" value="15000000" id="salarySlider">\
+  </div>\
+\
+  <div class="salary" id="salaryText"></div>\
+\
+  <div class="result" id="result"></div>\
+\
+  <div class="compare" id="compare"></div>\
+\
+  <div class="note">\
+    Gi\'e1 c\uc0\u259 n h\u7897  gi\u7843  \u273 \u7883 nh: 4 t\u7927  \u273 \u7891 ng (TP.HCM) <br>\
+    *Ch\uc0\u432 a t\'ednh l\'e3i vay, chi ph\'ed sinh ho\u7841 t\
+  </div>\
+</div>\
+\
+<script>\
+const slider = document.getElementById("salarySlider");\
+\
+function formatMoney(num) \{\
+  return num.toString().replace(/\\B(?=(\\d\{3\})+(?!\\d))/g, ",");\
+\}\
+\
+function calculate() \{\
+  let salary = slider.value;\
+  let years = 4000000000 / (salary * 12);\
+\
+  document.getElementById("salaryText").innerText =\
+    formatMoney(salary) + " VN\uc0\u272  / th\'e1ng";\
+\
+  document.getElementById("result").innerHTML =\
+    "B\uc0\u7841 n c\u7847 n kho\u7843 ng <span class='highlight'>" +\
+    years.toFixed(1) +\
+    " n\uc0\u259 m</span> \u273 \u7875  mua nh\'e0";\
+\
+  document.getElementById("compare").innerHTML =\
+    "N\uc0\u7871 u thu nh\u7853 p 10 tri\u7879 u/th\'e1ng \u8594  ~33 n\u259 m<br>" +\
+    "20 tri\uc0\u7879 u/th\'e1ng \u8594  ~16 n\u259 m<br>" +\
+    "50 tri\uc0\u7879 u/th\'e1ng \u8594  ~6.7 n\u259 m";\
+\}\
+\
+slider.addEventListener("input", calculate);\
+\
+calculate();\
+</script>\
+\
+</body>\
+</html>}
